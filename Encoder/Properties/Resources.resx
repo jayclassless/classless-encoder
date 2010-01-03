@@ -123,6 +123,9 @@
   <data name="alphabetTooShort" xml:space="preserve">
     <value>The specified Alphabet does not contain enough characters.</value>
   </data>
+  <data name="decoderNotImplemented" xml:space="preserve">
+    <value>A decoder has not been implemented for this encoder.</value>
+  </data>
   <data name="illegalCharacter" xml:space="preserve">
     <value>A character was encountered during decoding that is not part of the algorithm's alphabet.</value>
   </data>

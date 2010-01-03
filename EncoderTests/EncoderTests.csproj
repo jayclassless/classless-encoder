@@ -47,6 +47,7 @@
     <Compile Include="Base64EncoderTests.cs" />
     <Compile Include="Base64UrlDecoderTests.cs" />
     <Compile Include="Base64UrlEncoderTests.cs" />
+    <Compile Include="BubbleBabbleEncoderTests.cs" />
     <Compile Include="Common.cs" />
     <Compile Include="DecoderTests.cs" />
     <Compile Include="EncoderTests.cs" />

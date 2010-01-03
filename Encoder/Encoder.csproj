@@ -50,6 +50,7 @@
     <Compile Include="Base64UrlEncoder.cs" />
     <Compile Include="BlockDecoder.cs" />
     <Compile Include="BlockEncoder.cs" />
+    <Compile Include="BubbleBabbleEncoder.cs" />
     <Compile Include="Decoder.cs" />
     <Compile Include="Encoder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

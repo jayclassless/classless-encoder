@@ -371,6 +371,64 @@
            </Message>
           </Messages>
          </Type>
+         <Type Name="BubbleBabbleEncoder">
+          <Members>
+           <Member Name="#Consonants">
+            <Messages>
+             <Message TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819" Created="2010-01-03 19:43:29Z">
+              <Issue>
+               <Item>'BubbleBabbleEncoder.Consonants'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#ProcessBlock(System.Byte[],System.Int32)">
+            <Messages>
+             <Message Id="offset+1" TypeName="OperationsShouldNotOverflow" Category="Microsoft.Usage" CheckId="CA2233" Created="2010-01-03 19:43:29Z">
+              <Issue>
+               <Item>offset+1</Item>
+               <Item>'BubbleBabbleEncoder.ProcessBlock(byte[], int)'</Item>
+              </Issue>
+              <Issue>
+               <Item>offset+1</Item>
+               <Item>'BubbleBabbleEncoder.ProcessBlock(byte[], int)'</Item>
+              </Issue>
+              <Issue>
+               <Item>offset+1</Item>
+               <Item>'BubbleBabbleEncoder.ProcessBlock(byte[], int)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#StandardConsonants">
+            <Messages>
+             <Message TypeName="ArrayFieldsShouldNotBeReadOnly" Category="Microsoft.Security" CheckId="CA2105" Created="2010-01-03 19:43:29Z">
+              <Issue>
+               <Item>'BubbleBabbleEncoder.StandardConsonants'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#StandardVowels">
+            <Messages>
+             <Message TypeName="ArrayFieldsShouldNotBeReadOnly" Category="Microsoft.Security" CheckId="CA2105" Created="2010-01-03 19:43:29Z">
+              <Issue>
+               <Item>'BubbleBabbleEncoder.StandardVowels'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Vowels">
+            <Messages>
+             <Message TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819" Created="2010-01-03 19:43:29Z">
+              <Issue>
+               <Item>'BubbleBabbleEncoder.Vowels'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
          <Type Name="Decoder">
           <Members>
            <Member Name="#GetEncoder()">

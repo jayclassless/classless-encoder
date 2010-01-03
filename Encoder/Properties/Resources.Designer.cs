@@ -79,6 +79,15 @@ namespace Classless.Encoder.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A decoder has not been implemented for this encoder..
+        /// </summary>
+        internal static string decoderNotImplemented {
+            get {
+                return ResourceManager.GetString("decoderNotImplemented", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to A character was encountered during decoding that is not part of the algorithm&apos;s alphabet..
         /// </summary>
         internal static string illegalCharacter {

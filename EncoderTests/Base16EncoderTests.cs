@@ -31,9 +31,17 @@ namespace Classless.Encoder.Tests {
 	[TestFixture]
 	class Base16EncoderTests {
 		[Test]
-		public void AlphabetTest() {
+		public void StandardAlphabetTest() {
 			char[] testAlphabet = new char[] { '0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F' };
+			Common.AreEqual(testAlphabet, Base16Encoder.StandardAlphabet);
+		}
+
+
+		[Test]
+		public void AlphabetTest() {
+			char[] testAlphabet = new char[] { 'Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H' };
 			Base16Encoder encoder = new Base16Encoder();
+			encoder.Alphabet = testAlphabet;
 			Common.AreEqual(testAlphabet, encoder.Alphabet);
 		}
 

@@ -33,17 +33,26 @@ namespace Classless.Encoder.Tests {
 		[Test]
 		public void StandardAlphabetTest() {
 			char[] testAlphabet = new char[] { 'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','0','1','2','3','4','5','6','7','8','9','+','/' };
-			Base64Encoder encoder = new Base64Encoder();
-			Common.AreEqual(testAlphabet, encoder.Alphabet);
+			Common.AreEqual(testAlphabet, Base64Encoder.StandardAlphabet);
 		}
 
 		[Test]
 		public void StandardPaddingTest() {
 			char testPadding = '=';
-			Base64Encoder encoder = new Base64Encoder();
-			Assert.AreEqual(testPadding, encoder.Padding);
+			Assert.AreEqual(testPadding, Base64Encoder.StandardPadding);
 		}
 
+
+		[Test]
+		public void AlphabetTest() {
+			char[] testAlphabet = new char[] {
+				'Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','1','2','3','4','5','6',
+				'q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','7','8','9','0','[',']'
+			};
+			Base64Encoder encoder = new Base64Encoder();
+			encoder.Alphabet = testAlphabet;
+			Common.AreEqual(testAlphabet, encoder.Alphabet);
+		}
 
 		[Test, ExpectedException(typeof(ArgumentNullException))]
 		public void AlphabetNullTest() {

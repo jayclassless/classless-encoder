@@ -30,6 +30,17 @@ using NUnit.Framework;
 namespace Classless.Encoder.Tests {
 	[TestFixture]
 	class Base64UrlDecoderTests {
+		[Test]
+		public void AlphabetTest() {
+			char[] testAlphabet = new char[] {
+				'Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','1','2','3','4','5','6',
+				'q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','7','8','9','0','[',']'
+			};
+			Base64UrlDecoder decoder = new Base64UrlDecoder();
+			decoder.Alphabet = testAlphabet;
+			Common.AreEqual(testAlphabet, decoder.Alphabet);
+		}
+
 		[Test, ExpectedException(typeof(ArgumentNullException))]
 		public void AlphabetNullTest() {
 			Base64UrlDecoder decoder = new Base64UrlDecoder();

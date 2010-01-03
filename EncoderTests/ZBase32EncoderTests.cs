@@ -33,17 +33,23 @@ namespace Classless.Encoder.Tests {
 		[Test]
 		public void StandardAlphabetTest() {
 			char[] testAlphabet = new char[] { 'y','b','n','d','r','f','g','8','e','j','k','m','c','p','q','x','o','t','1','u','w','i','s','z','a','3','4','5','h','7','6','9' };
-			ZBase32Encoder encoder = new ZBase32Encoder();
-			Common.AreEqual(testAlphabet, encoder.Alphabet);
+			Common.AreEqual(testAlphabet, ZBase32Encoder.StandardAlphabet);
 		}
 
 		[Test]
 		public void StandardPaddingTest() {
 			char testPadding = '=';
-			ZBase32Encoder encoder = new ZBase32Encoder();
-			Assert.AreEqual(testPadding, encoder.Padding);
+			Assert.AreEqual(testPadding, ZBase32Encoder.StandardPadding);
 		}
 
+
+		[Test]
+		public void AlphabetTest() {
+			char[] testAlphabet = new char[] { 'Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','1','2','3','4','5','6' };
+			ZBase32Encoder encoder = new ZBase32Encoder();
+			encoder.Alphabet = testAlphabet;
+			Common.AreEqual(testAlphabet, encoder.Alphabet);
+		}
 
 		[Test, ExpectedException(typeof(ArgumentNullException))]
 		public void AlphabetNullTest() {

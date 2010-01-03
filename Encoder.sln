@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Encoder", "Encoder\Encoder.csproj", "{5E26C9DC-FD1E-4F77-B074-5094B9D8BF0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncoderTests", "EncoderTests\EncoderTests.csproj", "{20770A7E-107F-4439-9A3C-3CF85E2E8F49}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5E26C9DC-FD1E-4F77-B074-5094B9D8BF0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E26C9DC-FD1E-4F77-B074-5094B9D8BF0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E26C9DC-FD1E-4F77-B074-5094B9D8BF0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E26C9DC-FD1E-4F77-B074-5094B9D8BF0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20770A7E-107F-4439-9A3C-3CF85E2E8F49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20770A7E-107F-4439-9A3C-3CF85E2E8F49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20770A7E-107F-4439-9A3C-3CF85E2E8F49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20770A7E-107F-4439-9A3C-3CF85E2E8F49}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

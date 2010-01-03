@@ -1,0 +1,474 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FxCopProject Version="1.36" Name="My FxCop Project">
+ <ProjectOptions>
+  <SharedProject>True</SharedProject>
+  <Stylesheet Apply="False">c:\program files\microsoft fxcop 1.36\Xml\FxCopReport.xsl</Stylesheet>
+  <SaveMessages>
+   <Project Status="Active, Excluded" NewOnly="False" />
+   <Report Status="Active" NewOnly="False" />
+  </SaveMessages>
+  <ProjectFile Compress="True" DefaultTargetCheck="True" DefaultRuleCheck="True" SaveByRuleGroup="" Deterministic="True" />
+  <EnableMultithreadedLoad>True</EnableMultithreadedLoad>
+  <EnableMultithreadedAnalysis>True</EnableMultithreadedAnalysis>
+  <SourceLookup>True</SourceLookup>
+  <AnalysisExceptionsThreshold>10</AnalysisExceptionsThreshold>
+  <RuleExceptionsThreshold>1</RuleExceptionsThreshold>
+  <Spelling Locale="en-US" />
+  <OverrideRuleVisibilities>False</OverrideRuleVisibilities>
+  <CustomDictionaries SearchFxCopDir="True" SearchUserProfile="True" SearchProjectDir="True" />
+  <SearchGlobalAssemblyCache>False</SearchGlobalAssemblyCache>
+  <DeadlockDetectionTimeout>120</DeadlockDetectionTimeout>
+  <IgnoreGeneratedCode>False</IgnoreGeneratedCode>
+ </ProjectOptions>
+ <Targets>
+  <Target Name="$(ProjectDir)/Encoder/bin/Debug/Classless.Encoder.dll" Analyze="True" AnalyzeAllChildren="True" />
+ </Targets>
+ <Rules>
+  <RuleFiles>
+   <RuleFile Name="$(FxCopDir)\Rules\DesignRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\GlobalizationRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\InteroperabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\MobilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\NamingRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\PerformanceRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\PortabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\SecurityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\UsageRules.dll" Enabled="True" AllRulesEnabled="True" />
+  </RuleFiles>
+  <Groups />
+  <Settings />
+ </Rules>
+ <FxCopReport Version="1.36">
+  <Targets>
+   <Target Name="$(ProjectDir)/Encoder/bin/Debug/Classless.Encoder.dll">
+    <Modules>
+     <Module Name="classless.encoder.dll">
+      <Messages>
+       <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Status="Excluded" Created="2010-01-03 01:15:36Z">
+        <Issue Name="NoStrongName">
+         <Item>'Classless.Encoder.dll'</Item>
+        </Issue>
+        <Notes>
+         <User Name="jay">
+          <Note Id="0" />
+         </User>
+        </Notes>
+       </Message>
+      </Messages>
+      <Namespaces>
+       <Namespace Name="Classless.Encoder">
+        <Types>
+         <Type Name="Base16Decoder">
+          <Members>
+           <Member Name="#Alphabet">
+            <Messages>
+             <Message TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819" Created="2010-01-03 01:15:36Z">
+              <Issue>
+               <Item>'Base16Decoder.Alphabet'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Base16Encoder">
+          <Members>
+           <Member Name="#Alphabet">
+            <Messages>
+             <Message TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819" Created="2010-01-03 01:15:36Z">
+              <Issue>
+               <Item>'Base16Encoder.Alphabet'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#StandardAlphabet">
+            <Messages>
+             <Message TypeName="ArrayFieldsShouldNotBeReadOnly" Category="Microsoft.Security" CheckId="CA2105" Created="2010-01-03 01:15:36Z">
+              <Issue>
+               <Item>'Base16Encoder.StandardAlphabet'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Base32Decoder">
+          <Members>
+           <Member Name="#Alphabet">
+            <Messages>
+             <Message TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819" Created="2010-01-03 01:15:36Z">
+              <Issue>
+               <Item>'Base32Decoder.Alphabet'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Base32Encoder">
+          <Members>
+           <Member Name="#Alphabet">
+            <Messages>
+             <Message TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819" Created="2010-01-03 01:15:36Z">
+              <Issue>
+               <Item>'Base32Encoder.Alphabet'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#ProcessBlock(System.Byte[],System.Int32)">
+            <Messages>
+             <Message Id="offset+1" TypeName="OperationsShouldNotOverflow" Category="Microsoft.Usage" CheckId="CA2233" Created="2010-01-03 01:15:36Z">
+              <Issue>
+               <Item>offset+1</Item>
+               <Item>'Base32Encoder.ProcessBlock(byte[], int)'</Item>
+              </Issue>
+              <Issue>
+               <Item>offset+1</Item>
+               <Item>'Base32Encoder.ProcessBlock(byte[], int)'</Item>
+              </Issue>
+              <Issue>
+               <Item>offset+1</Item>
+               <Item>'Base32Encoder.ProcessBlock(byte[], int)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="offset+2" TypeName="OperationsShouldNotOverflow" Category="Microsoft.Usage" CheckId="CA2233" Created="2010-01-03 01:15:36Z">
+              <Issue>
+               <Item>offset+2</Item>
+               <Item>'Base32Encoder.ProcessBlock(byte[], int)'</Item>
+              </Issue>
+              <Issue>
+               <Item>offset+2</Item>
+               <Item>'Base32Encoder.ProcessBlock(byte[], int)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="offset+3" TypeName="OperationsShouldNotOverflow" Category="Microsoft.Usage" CheckId="CA2233" Created="2010-01-03 01:15:36Z">
+              <Issue>
+               <Item>offset+3</Item>
+               <Item>'Base32Encoder.ProcessBlock(byte[], int)'</Item>
+              </Issue>
+              <Issue>
+               <Item>offset+3</Item>
+               <Item>'Base32Encoder.ProcessBlock(byte[], int)'</Item>
+              </Issue>
+              <Issue>
+               <Item>offset+3</Item>
+               <Item>'Base32Encoder.ProcessBlock(byte[], int)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="offset+4" TypeName="OperationsShouldNotOverflow" Category="Microsoft.Usage" CheckId="CA2233" Created="2010-01-03 01:15:36Z">
+              <Issue>
+               <Item>offset+4</Item>
+               <Item>'Base32Encoder.ProcessBlock(byte[], int)'</Item>
+              </Issue>
+              <Issue>
+               <Item>offset+4</Item>
+               <Item>'Base32Encoder.ProcessBlock(byte[], int)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#ProcessFinalBlock(System.Byte[],System.Int32,System.Int32)">
+            <Messages>
+             <Message Id="offset+1" TypeName="OperationsShouldNotOverflow" Category="Microsoft.Usage" CheckId="CA2233" Created="2010-01-03 01:15:36Z">
+              <Issue>
+               <Item>offset+1</Item>
+               <Item>'Base32Encoder.ProcessFinalBlock(byte[], int, int)'</Item>
+              </Issue>
+              <Issue>
+               <Item>offset+1</Item>
+               <Item>'Base32Encoder.ProcessFinalBlock(byte[], int, int)'</Item>
+              </Issue>
+              <Issue>
+               <Item>offset+1</Item>
+               <Item>'Base32Encoder.ProcessFinalBlock(byte[], int, int)'</Item>
+              </Issue>
+              <Issue>
+               <Item>offset+1</Item>
+               <Item>'Base32Encoder.ProcessFinalBlock(byte[], int, int)'</Item>
+              </Issue>
+              <Issue>
+               <Item>offset+1</Item>
+               <Item>'Base32Encoder.ProcessFinalBlock(byte[], int, int)'</Item>
+              </Issue>
+              <Issue>
+               <Item>offset+1</Item>
+               <Item>'Base32Encoder.ProcessFinalBlock(byte[], int, int)'</Item>
+              </Issue>
+              <Issue>
+               <Item>offset+1</Item>
+               <Item>'Base32Encoder.ProcessFinalBlock(byte[], int, int)'</Item>
+              </Issue>
+              <Issue>
+               <Item>offset+1</Item>
+               <Item>'Base32Encoder.ProcessFinalBlock(byte[], int, int)'</Item>
+              </Issue>
+              <Issue>
+               <Item>offset+1</Item>
+               <Item>'Base32Encoder.ProcessFinalBlock(byte[], int, int)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="offset+2" TypeName="OperationsShouldNotOverflow" Category="Microsoft.Usage" CheckId="CA2233" Created="2010-01-03 01:15:36Z">
+              <Issue>
+               <Item>offset+2</Item>
+               <Item>'Base32Encoder.ProcessFinalBlock(byte[], int, int)'</Item>
+              </Issue>
+              <Issue>
+               <Item>offset+2</Item>
+               <Item>'Base32Encoder.ProcessFinalBlock(byte[], int, int)'</Item>
+              </Issue>
+              <Issue>
+               <Item>offset+2</Item>
+               <Item>'Base32Encoder.ProcessFinalBlock(byte[], int, int)'</Item>
+              </Issue>
+              <Issue>
+               <Item>offset+2</Item>
+               <Item>'Base32Encoder.ProcessFinalBlock(byte[], int, int)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="offset+3" TypeName="OperationsShouldNotOverflow" Category="Microsoft.Usage" CheckId="CA2233" Created="2010-01-03 01:15:36Z">
+              <Issue>
+               <Item>offset+3</Item>
+               <Item>'Base32Encoder.ProcessFinalBlock(byte[], int, int)'</Item>
+              </Issue>
+              <Issue>
+               <Item>offset+3</Item>
+               <Item>'Base32Encoder.ProcessFinalBlock(byte[], int, int)'</Item>
+              </Issue>
+              <Issue>
+               <Item>offset+3</Item>
+               <Item>'Base32Encoder.ProcessFinalBlock(byte[], int, int)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#StandardAlphabet">
+            <Messages>
+             <Message TypeName="ArrayFieldsShouldNotBeReadOnly" Category="Microsoft.Security" CheckId="CA2105" Created="2010-01-03 01:15:36Z">
+              <Issue>
+               <Item>'Base32Encoder.StandardAlphabet'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Base32HexEncoder">
+          <Members>
+           <Member Name="#StandardAlphabet">
+            <Messages>
+             <Message TypeName="ArrayFieldsShouldNotBeReadOnly" Category="Microsoft.Security" CheckId="CA2105" Created="2010-01-03 01:15:36Z">
+              <Issue>
+               <Item>'Base32HexEncoder.StandardAlphabet'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Base64Decoder">
+          <Members>
+           <Member Name="#Alphabet">
+            <Messages>
+             <Message TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819" Created="2010-01-03 01:15:36Z">
+              <Issue>
+               <Item>'Base64Decoder.Alphabet'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Base64Encoder">
+          <Members>
+           <Member Name="#Alphabet">
+            <Messages>
+             <Message TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819" Created="2010-01-03 01:15:36Z">
+              <Issue>
+               <Item>'Base64Encoder.Alphabet'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#ProcessBlock(System.Byte[],System.Int32)">
+            <Messages>
+             <Message Id="offset+1" TypeName="OperationsShouldNotOverflow" Category="Microsoft.Usage" CheckId="CA2233" Created="2010-01-03 01:15:36Z">
+              <Issue>
+               <Item>offset+1</Item>
+               <Item>'Base64Encoder.ProcessBlock(byte[], int)'</Item>
+              </Issue>
+              <Issue>
+               <Item>offset+1</Item>
+               <Item>'Base64Encoder.ProcessBlock(byte[], int)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="offset+2" TypeName="OperationsShouldNotOverflow" Category="Microsoft.Usage" CheckId="CA2233" Created="2010-01-03 01:15:36Z">
+              <Issue>
+               <Item>offset+2</Item>
+               <Item>'Base64Encoder.ProcessBlock(byte[], int)'</Item>
+              </Issue>
+              <Issue>
+               <Item>offset+2</Item>
+               <Item>'Base64Encoder.ProcessBlock(byte[], int)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#ProcessFinalBlock(System.Byte[],System.Int32,System.Int32)">
+            <Messages>
+             <Message Id="offset+1" TypeName="OperationsShouldNotOverflow" Category="Microsoft.Usage" CheckId="CA2233" Created="2010-01-03 01:15:36Z">
+              <Issue>
+               <Item>offset+1</Item>
+               <Item>'Base64Encoder.ProcessFinalBlock(byte[], int, int)'</Item>
+              </Issue>
+              <Issue>
+               <Item>offset+1</Item>
+               <Item>'Base64Encoder.ProcessFinalBlock(byte[], int, int)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#StandardAlphabet">
+            <Messages>
+             <Message TypeName="ArrayFieldsShouldNotBeReadOnly" Category="Microsoft.Security" CheckId="CA2105" Created="2010-01-03 01:15:36Z">
+              <Issue>
+               <Item>'Base64Encoder.StandardAlphabet'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Base64UrlEncoder">
+          <Members>
+           <Member Name="#StandardAlphabet">
+            <Messages>
+             <Message TypeName="ArrayFieldsShouldNotBeReadOnly" Category="Microsoft.Security" CheckId="CA2105" Created="2010-01-03 01:15:36Z">
+              <Issue>
+               <Item>'Base64UrlEncoder.StandardAlphabet'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="BlockDecoder">
+          <Messages>
+           <Message TypeName="AbstractTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1012" Created="2010-01-03 01:15:36Z">
+            <Issue>
+             <Item>'BlockDecoder'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="BlockEncoder">
+          <Messages>
+           <Message TypeName="AbstractTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1012" Created="2010-01-03 01:15:36Z">
+            <Issue>
+             <Item>'BlockEncoder'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="Decoder">
+          <Members>
+           <Member Name="#GetEncoder()">
+            <Messages>
+             <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Status="Excluded" Created="2010-01-03 01:15:36Z">
+              <Issue Certainty="50">
+               <Item>'Decoder.GetEncoder()'</Item>
+              </Issue>
+              <Notes>
+               <User Name="jay">
+                <Note Id="1" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Encoder">
+          <Messages>
+           <Message TypeName="TypeNamesShouldNotMatchNamespaces" Category="Microsoft.Naming" CheckId="CA1724" Status="Excluded" Created="2010-01-03 01:15:36Z">
+            <Issue>
+             <Item>'Encoder'</Item>
+             <Item>Classless.Encoder</Item>
+            </Issue>
+            <Notes>
+             <User Name="jay">
+              <Note Id="2" />
+             </User>
+            </Notes>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#GetDecoder()">
+            <Messages>
+             <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Status="Excluded" Created="2010-01-03 01:15:36Z">
+              <Issue Certainty="50">
+               <Item>'Encoder.GetDecoder()'</Item>
+              </Issue>
+              <Notes>
+               <User Name="jay">
+                <Note Id="1" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ZBase32Encoder">
+          <Members>
+           <Member Name="#StandardAlphabet">
+            <Messages>
+             <Message TypeName="ArrayFieldsShouldNotBeReadOnly" Category="Microsoft.Security" CheckId="CA2105" Created="2010-01-03 04:48:24Z">
+              <Issue>
+               <Item>'ZBase32Encoder.StandardAlphabet'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+  </Targets>
+  <Notes>
+   <User Name="jay">
+    <Note Id="0" Modified="2010-01-03 01:30:33Z">This is the debug assembly, the release assembly will be signed.</Note>
+    <Note Id="1" Modified="2010-01-03 01:31:51Z">These methods return new mutable object each time they are invoked. Not appropriate for a property.</Note>
+    <Note Id="2" Modified="2010-01-03 04:49:34Z">The name of this class is what it does. There isn't a better name.</Note>
+   </User>
+  </Notes>
+  <Rules>
+   <Rule TypeName="AbstractTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1012">
+    <Resolution Name="Default">Change the accessibility of all public constructors in {0} to protected.</Resolution>
+   </Rule>
+   <Rule TypeName="ArrayFieldsShouldNotBeReadOnly" Category="Microsoft.Security" CheckId="CA2105">
+    <Resolution Name="Default">Either replace {0} with a strongly typed collection that cannot be changed, or replace the public field with a method that returns a clone of a private array.</Resolution>
+   </Rule>
+   <Rule TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210">
+    <Resolution Name="NoStrongName">Sign {0} with a strong name key.</Resolution>
+   </Rule>
+   <Rule TypeName="OperationsShouldNotOverflow" Category="Microsoft.Usage" CheckId="CA2233">
+    <Resolution Name="Default">Correct the potential overflow in the operation '{0}' in {1}.</Resolution>
+   </Rule>
+   <Rule TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819">
+    <Resolution Name="Default">Change {0} to return a collection or make it a method.</Resolution>
+   </Rule>
+   <Rule TypeName="TypeNamesShouldNotMatchNamespaces" Category="Microsoft.Naming" CheckId="CA1724">
+    <Resolution Name="Default">The type name {0} conflicts in whole or in part with the namespace name '{1}'. Change either name to eliminate the conflict.</Resolution>
+   </Rule>
+   <Rule TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024">
+    <Resolution Name="Default">Change {0} to a property if appropriate.</Resolution>
+   </Rule>
+  </Rules>
+ </FxCopReport>
+</FxCopProject>

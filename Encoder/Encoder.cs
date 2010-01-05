@@ -88,7 +88,7 @@ namespace Classless.Encoder {
 			if (input == null) {
 				throw new ArgumentNullException("input", Properties.Resources.streamCantBeNull);
 			}
-			if (bufferSize < 0) {
+			if (bufferSize < 1) {
 				throw new ArgumentException(Properties.Resources.invalidBufferSize, "bufferSize");
 			}
 

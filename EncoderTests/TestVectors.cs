@@ -26,6 +26,7 @@
 
 using System;
 using System.Collections;
+using System.IO;
 using System.Text;
 using NUnit.Framework;
 
@@ -84,6 +85,12 @@ namespace Classless.Encoder.Tests {
 			Assert.AreEqual(expectedOutput, result);
 		}
 
+		[Test, TestCaseSource("EncodingTestVectors")]
+		public void EncodingStreamTest(Encoder encoder, byte[] input, string expectedOutput) {
+			string result = encoder.Encode(new MemoryStream(input));
+			Assert.AreEqual(expectedOutput, result);
+		}
+
 
 		[Test, TestCaseSource("EncodingTestVectors")]
 		public void DecodingTest(Encoder encoder, byte[] expectedOutput, string input) {
@@ -91,7 +98,14 @@ namespace Classless.Encoder.Tests {
 				byte[] result = encoder.GetDecoder().Decode(input);
 				Common.AreEqual(expectedOutput, result);
 			} catch (NotImplementedException) { }
-			
+		}
+
+		[Test, TestCaseSource("EncodingTestVectors")]
+		public void DecodingStreamTest(Encoder encoder, byte[] expectedOutput, string input) {
+			try {
+				byte[] result = encoder.GetDecoder().Decode(new MemoryStream(Encoding.ASCII.GetBytes(input)));
+				Common.AreEqual(expectedOutput, result);
+			} catch (NotImplementedException) { }
 		}
 
 		[Test, TestCaseSource("EncodingTestVectors")]
@@ -126,7 +140,7 @@ namespace Classless.Encoder.Tests {
 		}
 
 
-		static public IEnumerable RandomRoundTrips {
+		static public IEnumerable RandomInput {
 			get {
 				int iterations = 25;
 				int maxInputLength = 10240;
@@ -142,11 +156,20 @@ namespace Classless.Encoder.Tests {
 			}
 		}
 
-		[Test,
-		TestCaseSource("RandomRoundTrips")]
+		[Test, TestCaseSource("RandomInput")]
 		public void RandomRoundTripTest(Type encoderType, byte[] input) {
 			Encoder encoder = Encoder.Create(encoderType.Name);
 			string encoded = encoder.Encode(input);
+			try {
+				byte[] decoded = encoder.GetDecoder().Decode(encoded);
+				Common.AreEqual(input, decoded);
+			} catch (NotImplementedException) { }
+		}
+
+		[Test, TestCaseSource("RandomInput")]
+		public void RandomStreamTest(Type encoderType, byte[] input) {
+			Encoder encoder = Encoder.Create(encoderType.Name);
+			string encoded = encoder.Encode(new MemoryStream(input));
 			try {
 				byte[] decoded = encoder.GetDecoder().Decode(encoded);
 				Common.AreEqual(input, decoded);

@@ -46,5 +46,24 @@ namespace Classless.Encoder.Tests {
 		public void CreateBadCastTest() {
 			Assert.IsNull(Decoder.Create("Classless.Encoder.Base32Encoder"));
 		}
+
+
+		[Test, ExpectedException(typeof(ArgumentNullException))]
+		public void DecodeStreamBadTest() {
+			Decoder decoder = Decoder.Create();
+			decoder.Decode((System.IO.Stream)null);
+		}
+
+		[Test, ExpectedException(typeof(ArgumentNullException))]
+		public void DecodeStreamBad2Test() {
+			Decoder decoder = Decoder.Create();
+			decoder.Decode((System.IO.Stream)null, 10);
+		}
+
+		[Test, ExpectedException(typeof(ArgumentException))]
+		public void DecodeStreamBadBufferTest() {
+			Decoder decoder = Decoder.Create();
+			decoder.Decode(new System.IO.MemoryStream(), -10);
+		}
 	}
 }

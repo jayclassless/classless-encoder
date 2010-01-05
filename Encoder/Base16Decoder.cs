@@ -77,6 +77,13 @@ namespace Classless.Encoder {
 		}
 
 
+		/// <summary>Returns the expected Encoding of the strings that will be decoded.</summary>
+		/// <returns>An instance of the corresponding Encoding class.</returns>
+		override public System.Text.Encoding GetInputEncoding() {
+			return System.Text.Encoding.ASCII;
+		}
+
+
 		/// <summary>Initializes the Decoder in preparation for a decoding operation.</summary>
 		override public void Initialize() {
 			resultBuffer = new List<byte>();

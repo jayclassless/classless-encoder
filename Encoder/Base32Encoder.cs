@@ -93,6 +93,13 @@ namespace Classless.Encoder {
 		}
 
 
+		/// <summary>Returns the Encoding of the result strings.</summary>
+		/// <returns>An instance of the corresponding Encoding class.</returns>
+		override public Encoding GetOutputEncoding() {
+			return Encoding.ASCII;
+		}
+
+
 		/// <summary>Initializes the Encoder in preparation for an encoding operation.</summary>
 		override public void Initialize() {
 			base.Initialize();

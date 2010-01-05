@@ -103,7 +103,7 @@ namespace Classless.Encoder.Tests {
 		[Test, TestCaseSource("EncodingTestVectors")]
 		public void DecodingStreamTest(Encoder encoder, byte[] expectedOutput, string input) {
 			try {
-				byte[] result = encoder.GetDecoder().Decode(new MemoryStream(Encoding.ASCII.GetBytes(input)));
+				byte[] result = encoder.GetDecoder().Decode(new MemoryStream(encoder.GetOutputEncoding().GetBytes(input)));
 				Common.AreEqual(expectedOutput, result);
 			} catch (NotImplementedException) { }
 		}
@@ -167,11 +167,11 @@ namespace Classless.Encoder.Tests {
 		}
 
 		[Test, TestCaseSource("RandomInput")]
-		public void RandomStreamTest(Type encoderType, byte[] input) {
+		public void RandomRoundTripStreamTest(Type encoderType, byte[] input) {
 			Encoder encoder = Encoder.Create(encoderType.Name);
 			string encoded = encoder.Encode(new MemoryStream(input));
 			try {
-				byte[] decoded = encoder.GetDecoder().Decode(encoded);
+				byte[] decoded = encoder.GetDecoder().Decode(new MemoryStream(encoder.GetOutputEncoding().GetBytes(encoded)));
 				Common.AreEqual(input, decoded);
 			} catch (NotImplementedException) { }
 		}

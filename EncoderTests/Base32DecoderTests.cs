@@ -101,6 +101,15 @@ namespace Classless.Encoder.Tests {
 		}
 
 
+		[Test]
+		public void GetInputEncodingTest() {
+			Base32Decoder decoder = new Base32Decoder();
+			System.Text.Encoding encoding = decoder.GetInputEncoding();
+			Assert.IsNotNull(encoding);
+			Assert.AreEqual(System.Text.Encoding.ASCII, encoding);
+		}
+
+
 		[Test, ExpectedException(typeof(ArgumentException))]
 		public void InvalidCharacterTest() {
 			Base32Decoder decoder = new Base32Decoder();

@@ -114,5 +114,14 @@ namespace Classless.Encoder.Tests {
 			Assert.IsNotNull(decoder);
 			Assert.IsInstanceOf(typeof(Base64Decoder), decoder);
 		}
+
+
+		[Test]
+		public void GetOutputEncodingTest() {
+			Base64Encoder encoder = new Base64Encoder();
+			System.Text.Encoding encoding = encoder.GetOutputEncoding();
+			Assert.IsNotNull(encoding);
+			Assert.AreEqual(System.Text.Encoding.ASCII, encoding);
+		}
 	}
 }

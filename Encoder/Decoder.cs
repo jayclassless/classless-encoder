@@ -26,6 +26,7 @@
 
 using System;
 using System.IO;
+using System.Text;
 
 namespace Classless.Encoder {
 	/// <summary>The base class from which all decoding algorithms derive.</summary>
@@ -41,6 +42,11 @@ namespace Classless.Encoder {
 		/// <summary>Returns the Encoder that corresponds with this Decoder.</summary>
 		/// <returns>A new instance of the corresponding Encoder class.</returns>
 		abstract public Encoder GetEncoder();
+
+
+		/// <summary>Returns the expected Encoding of the strings that will be decoded.</summary>
+		/// <returns>An instance of the corresponding Encoding class.</returns>
+		abstract public Encoding GetInputEncoding();
 
 
 		/// <summary>Initializes the Decoder in preparation for a decoding operation.</summary>
@@ -118,12 +124,12 @@ namespace Classless.Encoder {
 			Initialize();
 
 			int num;
-			char[] temp;
-			byte[] buffer = new byte[bufferSize];
-			while ((num = input.Read(buffer, 0, bufferSize)) > 0) {
-				temp = System.Text.Encoding.ASCII.GetChars(buffer, 0, num);
-				DecodeCore(temp, 0, temp.Length);
+			char[] buffer = new char[bufferSize];
+			StreamReader reader = new StreamReader(input, GetInputEncoding());
+			while ((num = reader.Read(buffer, 0, bufferSize)) > 0) {
+				DecodeCore(buffer, 0, num);
 			}
+			reader.Close();
 
 			return DecodeFinal();
 		}

@@ -79,5 +79,14 @@ namespace Classless.Encoder.Tests {
 			Assert.IsNotNull(decoder);
 			Assert.IsInstanceOf(typeof(Base16Decoder), decoder);
 		}
+
+
+		[Test]
+		public void GetOutputEncodingTest() {
+			Base16Encoder encoder = new Base16Encoder();
+			System.Text.Encoding encoding = encoder.GetOutputEncoding();
+			Assert.IsNotNull(encoding);
+			Assert.AreEqual(System.Text.Encoding.ASCII, encoding);
+		}
 	}
 }

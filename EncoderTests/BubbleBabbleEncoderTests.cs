@@ -178,5 +178,14 @@ namespace Classless.Encoder.Tests {
 			//Assert.IsNotNull(decoder);
 			//Assert.IsInstanceOf(typeof(BubbleBabbleDecoder), decoder);
 		}
+
+
+		[Test]
+		public void GetOutputEncodingTest() {
+			BubbleBabbleEncoder encoder = new BubbleBabbleEncoder();
+			System.Text.Encoding encoding = encoder.GetOutputEncoding();
+			Assert.IsNotNull(encoding);
+			Assert.AreEqual(System.Text.Encoding.ASCII, encoding);
+		}
 	}
 }

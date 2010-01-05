@@ -81,6 +81,15 @@ namespace Classless.Encoder.Tests {
 		}
 
 
+		[Test]
+		public void GetInputEncodingTest() {
+			Base16Decoder decoder = new Base16Decoder();
+			System.Text.Encoding encoding = decoder.GetInputEncoding();
+			Assert.IsNotNull(encoding);
+			Assert.AreEqual(System.Text.Encoding.ASCII, encoding);
+		}
+
+
 		[Test, ExpectedException(typeof(ArgumentException))]
 		public void InvalidCharacterTest() {
 			Base16Decoder decoder = new Base16Decoder();

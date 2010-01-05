@@ -39,6 +39,11 @@ namespace Classless.Encoder {
 		abstract public Decoder GetDecoder();
 
 
+		/// <summary>Returns the Encoding of the result strings.</summary>
+		/// <returns>An instance of the corresponding Encoding class.</returns>
+		abstract public System.Text.Encoding GetOutputEncoding();
+
+
 		/// <summary>Initializes the Encoder in preparation for an encoding operation.</summary>
 		abstract public void Initialize();
 

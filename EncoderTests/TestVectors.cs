@@ -12,7 +12,7 @@
  * for the specific language governing rights and limitations under the
  * License.
  *
- * The Original Code is Classless.Hasher - .NET Binary Encoding Library.
+ * The Original Code is Classless.Encoder - .NET Binary Encoding Library.
  *
  * The Initial Developer of the Original Code is Classless.net.
  * Portions created by the Initial Developer are Copyright (C) 2010 the Initial
@@ -73,6 +73,11 @@ namespace Classless.Encoder.Tests {
 			new object[] { new BubbleBabbleEncoder(), Encoding.ASCII.GetBytes("1234567890"), "xesef-disof-gytuf-katof-movif-baxux" },
 			new object[] { new BubbleBabbleEncoder(), Encoding.ASCII.GetBytes("Pineapple"), "xigak-nyryk-humil-bosek-sonax" },
 
+
+			new object[] { new UUEncoder(), Encoding.ASCII.GetBytes(""), "`\n" },
+			new object[] { new UUEncoder(), Encoding.ASCII.GetBytes("Cat"), "#0V%T\n`\n" },
+			new object[] { new UUEncoder(), Encoding.ASCII.GetBytes("The quick brown fox jumps over the lazy dog"), "K5&AE('%U:6-K(&)R;W=N(&9O>\"!J=6UP<R!O=F5R('1H92!L87IY(&1O9P``\n`\n" },
+			new object[] { new UUEncoder(), Encoding.ASCII.GetBytes("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"), "M04)#1$5&1TA)2DM,34Y/4%%24U155E=865IA8F-D969G:&EJ:VQM;F]P<7)S\n1='5V=WAY>C`Q,C,T-38W.#D`\n`\n" },
 
 			new object[] { new Base64Encoder(), new byte[4] { 0xFF, 0xFF, 0xBE, 0x61 }, "//++YQ==" },
 			new object[] { new Base64UrlEncoder(), new byte[4] { 0xFF, 0xFF, 0xBE, 0x61 }, "__--YQ" },

@@ -59,6 +59,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="UUEncoder.cs" />
     <Compile Include="ZBase32Decoder.cs" />
     <Compile Include="ZBase32Encoder.cs" />
   </ItemGroup>

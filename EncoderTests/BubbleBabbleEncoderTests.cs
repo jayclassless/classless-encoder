@@ -12,7 +12,7 @@
  * for the specific language governing rights and limitations under the
  * License.
  *
- * The Original Code is Classless.Hasher - .NET Binary Encoding Library.
+ * The Original Code is Classless.Encoder - .NET Binary Encoding Library.
  *
  * The Initial Developer of the Original Code is Classless.net.
  * Portions created by the Initial Developer are Copyright (C) 2010 the Initial
